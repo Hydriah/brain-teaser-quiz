@@ -4,7 +4,7 @@ const questions$answer=[
   ["what flies without wings?","time"],
   ["what's full of holes but still holds water?","sponge"],
   ["what are the two(2) things you can,t eat for supper?","breakfast and lunch"],
-  ["where will you find roads without vehicles,forests without trees, and cities without houses?"," map"],
+  ["where will you find roads without vehicles,forests without trees, and cities without houses?","map"],
   ["The more it dries,the wetter it gets. what is it?","towel"],
   [" what is seen once every minute,twice every moment,but never in a thousand years?"," M"]];
   
@@ -22,12 +22,12 @@ const questions$answer=[
     document.write(message)
   }
   function listanswer(arr){ 
-         let anshtml= "<ol>" ;
-  for (let i = 0; i < arr.length; i++) {
-    anshtml='<li>' + arr[i] + '</li>'
+        let anshtml= "<ol>" ;
+  for (let i = 0; i< arr.length; i++) {
+    anshtml+='<li>' + arr[i] + '</li>'
     
   }
-   anshtml+="</ol>"
+   anshtml+="</ol>";
     return anshtml;
   }
 
@@ -36,20 +36,18 @@ const questions$answer=[
        response=questions$answer[i][1]
        if (question===response) {
       counter += 1;
-      correct.push(questions$answer)
+      correct.push(questions$answer[i]);  
     }
       else{
-      wrong.push(questions$answer);
-      }
-  
-  
+      wrong.push(questions$answer[i]);
+    }
   }  
   
    html="you got " + counter+ " out of " +questions$answer.length;
-   html+="<h2>you got these questions correctly:</h2>"
+   html+="<h2>you got these question(s) correctly:</h2>"
    html+=listanswer(correct);
-   html+="<h2> you got these questions wrong:</h2>"
-  
+   html+="<h2> you got these question(s) wrong:</h2>"
+  html+=listanswer(wrong);
   
   print(html)
   
